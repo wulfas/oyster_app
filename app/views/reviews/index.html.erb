@@ -24,11 +24,11 @@
       </div>
       <div class="panel-body">
         <dl>
-          <dt>Favorite</dt>
-          <dd><%= review.favorite %></dd>
+          <dt>Oyster</dt>
+          <dd><%= review.oyster.name %></dd>
 
-          <dt>User</dt>
-          <dd><%= review.user_id %></dd>
+          <dt>Rating</dt>
+          <dd><%= review.rating %></dd>
 
           <dt>Comment</dt>
           <dd><%= review.comment %></dd>
@@ -39,11 +39,12 @@
           <dt>Location</dt>
           <dd><%= review.location %></dd>
 
-          <dt>Rating</dt>
-          <dd><%= review.rating %></dd>
+          <dt>Reviewed by:</dt>
+          <dd><%= review.user.try(:first_name) %> <%= review.user.try(:last_name) %> </dd>
 
-          <dt>Oyster</dt>
-          <dd><%= review.oyster.name %></dd>
+          <dt>Favorite</dt>
+          <dd><%= review.favorite %></dd>
+
 
         </dl>
         <div class="btn-group btn-group-justified">
