@@ -50,7 +50,7 @@ root "oysters#index"
   #post "/update_favorites/:id", :controller => "favorites", :action => "update"
 
   # DELETE
-  #get "/delete_favorites/:id", :controller => "favorites", :action => "destroy"
+  get "/delete_favorites/:id", :controller => "favorites", :action => "destroy"
   #------------------------------
 
 

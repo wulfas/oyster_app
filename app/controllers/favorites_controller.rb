@@ -10,6 +10,12 @@ class FavoritesController < ApplicationController
     @favorite.save
     redirect_to :back, notice: "The favorite has been created!"
   end
+    def destroy
+    @favorite = Favorite.find(params[:id])
+    @favorite.destroy
+
+    redirect_to "/favorites", :notice => "Favorite deleted."
+  end
 end
 
 
