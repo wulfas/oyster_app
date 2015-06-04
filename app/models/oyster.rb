@@ -1,6 +1,7 @@
 class Oyster < ActiveRecord::Base
   has_many :reviews
 
+
   # oyster.average_rating => 3.5
   def average_rating
     ratings = []

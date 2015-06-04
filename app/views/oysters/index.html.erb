@@ -1,46 +1,38 @@
 <div class="page-header">
-  <h1>
-    Oysters
-    <a href="/oysters/new" class="btn btn-lg btn-success"><i class="fa fa-plus"></i></a>
-  </h1>
+  <h1>All Oysters</h1>
+  <h3>
+    Add A New Oyster
+    <a href="/oysters/new" class="btn btn-success"><i class="fa fa-plus"></i></a>
+  </h3>
 </div>
 
 <!-- Responsive, Isotope-based layout example -->
 
-<div class="row">
-  <div class="col-xs-12">
-    <input type="text" id="quicksearch" placeholder="Search Oysters (start typing)" class="form-control">
-  </div>
-</div>
-
-<hr>
-
-<table class="table table-striped">
-<% @oysters.each do |oyster| %>
-<!--  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item"> -->
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= oyster.name %></h3>
-      </div>
-      <div class="panel-body">
-        <dl>
-          <dt>Description</dt>
-          <dd><%= oyster.description %></dd>
-
-          <dt>My Rating</dt>
-          <dd><%= oyster.name %></dd>
-
-          <dt>Average Rating</dt>
-          <dd><%= oyster.average_rating %></dd>
-
-
-        </dl>
-        <div class="btn-group btn-group-justified">
-          <a href="/oysters/<%= oyster.id %>" class="btn btn-info">
-            <i class="fa fa-search-plus"></i>
+<table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th>Oyster Type</th>
+      <th>Average Rating</th>
+      <th>My Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @oysters.each do |oyster| %>
+    <tr class="success">
+      <td><%= oyster.name %></td>
+      <td><%= oyster.average_rating %></td>
+      <td><%= current_user.email %></td>
+    </tr>
+    <tr>
+      <td><%= oyster.description %></td>
+      <td> </td>
+      <td>
+        <div class="btn-group btn-group-right">
+          <a href="/favorites/create?oyster_id=<%= oyster.id %>" class="btn btn-info">
+            <i class="fa fa-star-o"></i>
           </a>
 
-          <a href="/oysters/<%= oyster.id %>/edit" class="btn btn-success">
+          <a href="/oysters/<%= oyster.id %>/edit" class="btn btn-warning">
             <i class="fa fa-edit"></i>
           </a>
 
@@ -48,11 +40,15 @@
             <i class="fa fa-trash-o"></i>
           </a>
         </div>
-      </div>
-    </div>
+        </td>
+    </tr>
 
+    </tr>
+  </tbody>
 <% end %>
 </table>
+
+
 
 <!-- You can ignore the following. It's a quick and dirty example of how to get a Pinterest-style layout with quick search. -->
 <!-- JavaScript for Isotope layout and quicksearch -->

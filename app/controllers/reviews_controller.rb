@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    @review = Review.find(params[:id])
+    @reviews = current_user.reviews
   end
 
   def new
@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new
     @review.favorite = params[:favorite]
-    @review.user_id = params[:user_id]
+    @review.user_id = current_user.id
     @review.comment = params[:comment]
     @review.date = params[:date]
     @review.location = params[:location]

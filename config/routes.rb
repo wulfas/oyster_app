@@ -25,7 +25,7 @@ root "oysters#index"
 
   # READ
   get "/reviews", :controller => "reviews", :action => "index"
-  get "/reviews/:id", :controller => "reviews", :action => "show"
+  get "/reviews/show", :controller => "reviews", :action => "show"
 
   # UPDATE
   get "/reviews/:id/edit", :controller => "reviews", :action => "edit"
@@ -42,6 +42,7 @@ root "oysters#index"
 
   # READ
   get "/favorites", :controller => "favorites", :action => "index"
+  get "/favorites/create", :controller => "favorites", :action => "create"
   #get "/favorites/:id", :controller => "favorites", :action => "show"
 
   # UPDATE

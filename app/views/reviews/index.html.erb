@@ -1,17 +1,16 @@
 <div class="page-header">
-  <h1>
-    Reviews
-    <a href="/reviews/new" class="btn btn-lg btn-success"><i class="fa fa-plus"></i></a>
-  </h1>
+  <h1>All Oyster Reviews </h1>
+  <h3> Add A New Review
+    <a href="/reviews/new" class="btn btn-success">
+      <i class="fa fa-plus"></i></a>
+
+    See My Reviews Only
+    <a href="/reviews/show" class="btn btn-info">
+    <i class="fa fa-plus"></i></a>
+  </h3>
 </div>
 
 <!-- Responsive, Isotope-based layout example -->
-
-<div class="row">
-  <div class="col-xs-12">
-    <input type="text" id="quicksearch" placeholder="Search Reviews (start typing)" class="form-control">
-  </div>
-</div>
 
 <hr>
 
@@ -25,7 +24,7 @@
       <div class="panel-body">
         <dl>
           <dt>Oyster</dt>
-          <dd><%= review.oyster.name %></dd>
+          <dd><%= review.oyster.try(:name) %></dd>
 
           <dt>Rating</dt>
           <dd><%= review.rating %></dd>
@@ -39,8 +38,8 @@
           <dt>Location</dt>
           <dd><%= review.location %></dd>
 
-          <dt>Reviewed by:</dt>
-          <dd><%= review.user.try(:first_name) %> <%= review.user.try(:last_name) %> </dd>
+          <dt>Oyster ID:</dt>
+          <dd><%= review.oyster.try(:id) %> </dd>
 
           <dt>Favorite</dt>
           <dd><%= review.favorite %></dd>
@@ -48,8 +47,8 @@
 
         </dl>
         <div class="btn-group btn-group-justified">
-          <a href="/reviews/<%= review.id %>" class="btn btn-info">
-            <i class="fa fa-search-plus"></i>
+          <a href="/oysters/<%= review.oyster.try(:id) %>" class="btn btn-info">
+            <i class="fa fa-info-circle"></i>
           </a>
 
           <a href="/reviews/<%= review.id %>/edit" class="btn btn-success">
