@@ -8,20 +8,22 @@
 
 <hr>
 <h2>Issues on this page</h2>
-  <p>1) Should only see current_user.favorites - but i'm seeing all users</p>
-  <p>2) Need to restrict adding a favorite twice</p>
-  <p>3) Cannot delete a favorite</p>
+  <p>1) Need to restrict adding a favorite twice</p>
+
 
 <div class="row isotope-container">
 <% @favorites.each do |favorite| %>
   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Favorite #<%= favorite.oyster_id %></h3>
+        <h3 class="panel-title"><%= favorite.oyster.name %></h3>
       </div>
       <div class="panel-body">
         <dl>
           <dt>User</dt>
+          <dd><%= favorite.user.email %></dd>
+
+          <dt>Favorite.id</dt>
           <dd><%= favorite.id %></dd>
 
           <dt>posted</dt>
@@ -30,9 +32,9 @@
           <dt>time stamp</dt>
           <dd><%= favorite.created_at.strftime("%D") %></dd>
 
-          <dt>Delete favorite (NEED HELP)</dt>
+          <dt>Delete favorite</dt>
           <div class="btn-group btn-group-right">
-            <a href="/delete_favorites/<%= favorite.oyster_id %>" class="btn btn-info">
+            <a href="/delete_favorites/<%= favorite.id %>" class="btn btn-info">
             <i class="fa fa-star"></i>
           </a>
 
