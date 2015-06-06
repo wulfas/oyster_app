@@ -1,6 +1,7 @@
 class OystersController < ApplicationController
   def index
     @oysters = Oyster.all
+    @reviews = current_user.reviews
   end
 
   def show
@@ -42,9 +43,9 @@ class OystersController < ApplicationController
 
   def destroy
     @oyster = Oyster.find(params[:id])
-
     @oyster.destroy
 
-    redirect_to "/oysters", :notice => "Oyster deleted."
+
+      redirect_to "/oysters", :notice => "Oyster deleted."
   end
 end

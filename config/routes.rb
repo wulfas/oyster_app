@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 root "oysters#index"
+ get "/", :controller => "oysters", :action => "index"
 
   # Routes for the Oyster resource:
   # CREATE

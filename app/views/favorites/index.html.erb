@@ -1,15 +1,18 @@
 <div class="page-header">
   <h1>
     My Favorites
-    <a href="/oysters" class="btn btn-lg btn-success"><i class="fa fa-plus"></i></a>
+    <a href="/oysters" class="btn btn-lg btn-success"><i class="fa fa-home"></i></a>
   </h1>
+</div>
+
+<div class="jumbotron">
+  <h1>My Favorites</h1>
+  <img src="http://gtoyster.com/test/images/background/1.jpg"%">
+   <p><a class="btn btn-primary btn-lg" href="/oysters" role="button">Home</a></p>
 </div>
 
 
 <hr>
-<h2>Issues on this page</h2>
-  <p>1) Need to restrict adding a favorite twice</p>
-
 
 <div class="row isotope-container">
 <% @favorites.each do |favorite| %>
@@ -34,8 +37,8 @@
 
           <dt>Delete favorite</dt>
           <div class="btn-group btn-group-right">
-            <a href="/delete_favorites/<%= favorite.id %>" class="btn btn-info">
-            <i class="fa fa-star"></i>
+            <a href="/delete_favorites/<%= favorite.id %>" class="btn btn-danger">
+            <i class="fa fa-trash"></i>
           </a>
 
 

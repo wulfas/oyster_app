@@ -6,7 +6,7 @@
 
     See My Reviews Only
     <a href="/reviews/show" class="btn btn-info">
-    <i class="fa fa-plus"></i></a>
+    <i class="fa fa-chevron-right"></i></a>
   </h3>
 </div>
 
@@ -14,39 +14,26 @@
 
 <hr>
 
-<h2>Issues on this page</h2>
-  <p>1) When an oyster is deleted - the review should be destroyed as well </p>
-
 <div class="row isotope-container">
 <% @reviews.each do |review| %>
   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Review #<%= review.id %></h3>
+        <h3 class="panel-title"><%= review.oyster.name %></h3>
       </div>
       <div class="panel-body">
         <dl>
-          <dt>Oyster</dt>
-          <dd><%= review.oyster.try(:name) %></dd>
-
           <dt>Rating</dt>
           <dd><%= review.rating %></dd>
 
-          <dt>Comment</dt>
+          <dt>Review</dt>
           <dd><%= review.comment %></dd>
-
-          <dt>Date</dt>
-          <dd><%= review.date %></dd>
 
           <dt>Location</dt>
           <dd><%= review.location %></dd>
 
-          <dt>Oyster ID:</dt>
-          <dd><%= review.oyster.try(:id) %> </dd>
-
-          <dt>Favorite</dt>
-          <dd><%= review.favorite %></dd>
-
+          <dt>Date</dt>
+          <dd><%= review.date %></dd>
 
         </dl>
         <div class="btn-group btn-group-justified">
@@ -54,7 +41,7 @@
             <i class="fa fa-info-circle"></i>
           </a>
 
-          <a href="/reviews/<%= review.id %>/edit" class="btn btn-success">
+          <a href="/reviews/<%= review.id %>/edit" class="btn btn-warning">
             <i class="fa fa-edit"></i>
           </a>
 

@@ -1,3 +1,4 @@
+
 <div class="page-header">
   <h1>All Oysters</h1>
   <h3>
@@ -20,16 +21,16 @@
   <% @oysters.each do |oyster| %>
     <tr class="success">
       <td><%= oyster.name %></td>
-      <td><%= oyster.average_rating %></td>
-      <td><%= current_user.email %></td>
-    </tr>
+      <td><%= oyster.reviews.average(:rating) %></td>
+      <td><%= current_user.reviews.where(:oyster_id => oyster.id).average(:rating) %></td>
+     </tr>
     <tr>
       <td><%= oyster.description %></td>
       <td> </td>
       <td>
         <div class="btn-group btn-group-right">
-          <a href="/favorites/create?oyster_id=<%= oyster.id %>" class="btn btn-info">
-            <i class="fa fa-star-o"></i>
+          <a href="/favorites/create?oyster_id=<%= oyster.id %>" class="btn btn-primary">
+            <i class="fa fa-star" style="color:yellow"></i>
           </a>
 
           <a href="/oysters/<%= oyster.id %>/edit" class="btn btn-warning">
