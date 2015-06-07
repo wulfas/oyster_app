@@ -1,23 +1,14 @@
-<div class="page-header">
-  <h1>All Oyster Reviews </h1>
-  <h3> Add A New Review
-    <a href="/reviews/new" class="btn btn-success">
-      <i class="fa fa-plus"></i></a>
-
-    See My Reviews Only
-    <a href="/reviews/show" class="btn btn-info">
-    <i class="fa fa-chevron-right"></i></a>
-  </h3>
-</div>
-
-<!-- Responsive, Isotope-based layout example -->
+<div class="jumbotron" style="background-image: url(http://gtoyster.com/test/images/background/1.jpg); background-size: 100%; color: #128f76">
+    <h1>All Reviews</h1>
+    <p><a class="btn btn-primary btn-lg" href="/reviews/new" role="button"><i class="fa fa-plus"></i>   Write a Review </a>   </p>
+  </div>
 
 <hr>
 
 <div class="row isotope-container">
 <% @reviews.each do |review| %>
   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
-    <div class="panel panel-default">
+    <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title"><%= review.oyster.name %></h3>
       </div>

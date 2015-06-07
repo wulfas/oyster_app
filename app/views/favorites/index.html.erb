@@ -1,44 +1,27 @@
-<div class="page-header">
-  <h1>
-    My Favorites
-    <a href="/oysters" class="btn btn-lg btn-success"><i class="fa fa-home"></i></a>
-  </h1>
-</div>
+<div class="jumbotron" style="background-image: url(http://gtoyster.com/test/images/background/1.jpg); background-size: 100%; color: #128f76">
+    <h1>My Favorites</h1>
 
-<div class="jumbotron">
-  <h1>My Favorites</h1>
-  <img src="http://gtoyster.com/test/images/background/1.jpg"%">
-   <p><a class="btn btn-primary btn-lg" href="/oysters" role="button">Home</a></p>
-</div>
-
-
+    <p><a class="btn btn-primary btn-lg" href="/oysters" role="button"><i class="fa fa-plus"></i>   New </a></p>
+  </div>
 <hr>
+
 
 <div class="row isotope-container">
 <% @favorites.each do |favorite| %>
   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
-    <div class="panel panel-default">
+    <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title"><%= favorite.oyster.name %></h3>
+
       </div>
       <div class="panel-body">
         <dl>
-          <dt>User</dt>
-          <dd><%= favorite.user.email %></dd>
-
-          <dt>Favorite.id</dt>
-          <dd><%= favorite.id %></dd>
-
-          <dt>posted</dt>
-          <dd><%= time_ago_in_words(favorite.created_at)%></dd>
-
-          <dt>time stamp</dt>
+          <dt>created at</dt>
           <dd><%= favorite.created_at.strftime("%D") %></dd>
 
-          <dt>Delete favorite</dt>
           <div class="btn-group btn-group-right">
             <a href="/delete_favorites/<%= favorite.id %>" class="btn btn-danger">
-            <i class="fa fa-trash"></i>
+            <i class="fa fa-star-o" style="color:yellow"></i> Delete favorite
           </a>
 
 
