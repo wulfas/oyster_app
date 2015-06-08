@@ -31,13 +31,14 @@ class ReviewsController < ApplicationController
 
   def edit
     @review = Review.find(params[:id])
+
   end
 
   def update
     @review = Review.find(params[:id])
 
     @review.favorite = params[:favorite]
-    @review.user_id = params[:user_id]
+    @review.user_id = current_user.id
     @review.comment = params[:comment]
     @review.date = params[:date]
     @review.location = params[:location]
@@ -45,7 +46,7 @@ class ReviewsController < ApplicationController
     @review.oyster_id = params[:oyster_id]
 
     if @review.save
-      redirect_to "/reviews", :notice => "Review updated successfully."
+      redirect_to "/reviews/show", :notice => "Review updated successfully."
     else
       render 'edit'
     end
@@ -56,6 +57,6 @@ class ReviewsController < ApplicationController
 
     @review.destroy
 
-    redirect_to "/reviews", :notice => "Review deleted."
+    redirect_to "/reviews/show", :notice => "Review deleted."
   end
 end
